@@ -15,6 +15,9 @@
   <!-- Firebase -->
   <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
 
+
+  <script src="js/firebase_helpers.js"></script>
+
 </head>
 
 <body>  
@@ -33,6 +36,7 @@
           <li><form id="frmLogin" role="form"></li>
           <li class="loginwith"><a href="#">Login with</a></li>
           <li class="logingithub" style="padding-right:10px"><a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a></li>
+          <li class="loggedinuser">Welcome ...</li>
           <li class="logout" style="padding-right:10px"><a href="#" class="btn btn-default" id="logout-button">Logout</a></li>
         </form>
       </ul>
@@ -106,6 +110,7 @@
      $('.logingithub').hide();
    }else{
      $('.logout').hide();
+			$('.loggedinuser').hide();
    }
    $('.bt-social').click(function() {
      ref.authWithOAuthPopup("github", function(error, authData) {
@@ -114,15 +119,20 @@
        } else {
          $('.loginwith').hide();
          $('.logingithub').hide();
-         var user = new Firebase("https://team-hack.firebaseio.com/user/" + authData.uid);
-         user.update({"image-link" : authData.github.profileImageURL});
-         console.log("Authenticated successfully with payload:", authData);
+					$('.logout').show();
+					$('.loggedinuser').val("Welcome " + authData.github.displayName());
+					$('.loggedinuser').show();
+					updateUserLogin(authData);
        }
      });
    });
 
    $('#logout-button').click(function() {
      ref.unauth();
+			$('.loginwith').show();
+			$('.logingithub').show();
+			$('.logout').hide();
+			$('.loggedinuser').hide();
    });
  });
 
