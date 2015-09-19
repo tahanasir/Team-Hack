@@ -6,37 +6,36 @@
 
     <!-- Firebase Simple Login -->
     <script src="https://cdn.firebase.com/js/simple-login/1.6.4/firebase-simple-login.js"></script>
-
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdn.firebase.com/js/client/1.1.1/firebase.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.0.0/jquery.serialize-object.compiled.js"></script>
-    <script src="  http://cdnjs.cloudflare.com/ajax/libs/path.js/0.8.4/path.min.js"></script>
+
 </head>
 
 <body>
-
-<div id="container" class="container">
-    <!-- LOGIN -->
-    <form id="frmLogin" role="form">
+    <div id="container" class="container">
+        <!-- LOGIN -->
+        <form id="frmLogin" role="form">
          <h4>Login with</h4>
-        <!-- <a href="#" class="btn btn-danger bt-social" data-provider="google">Google+</a> --> <a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a>
-    </form>
-</div>
-   <script>
+         <!-- <a href="#" class="btn btn-danger bt-social" data-provider="google">Google+</a> --> <a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a>
+     </form>
+ </div>
+
+ <script>
+
     var ref = new Firebase("https://team-hack.firebaseio.com");
 
-    $('.bt-social').on('click', function (e) {
-
-        ref.authWithOAuthPopup("github", function(error, authData) {
-          if (error) {
+    $('.bt-social').click(function() {
+       authClient = new FirebaseSimpleLogin(myRef, function(error, user) { 
+        if (error) {
             console.log("Login Failed!", error);
-        } else {
+        } 
+
+        else {
             console.log("Authenticated successfully with payload:", authData);
         }
-    }});
+    }
+    authClient.login('github');
+}));
 
-    </script>
+</script>
 </body>
 </html>
