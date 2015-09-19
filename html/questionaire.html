@@ -114,7 +114,6 @@
   var myFirebaseRef = new Firebase("https://team-hack.firebaseio.com/user/" + ref.getAuth().uid);
 
   // ------------------------- POPULATE DATA -------------------------
-// Attach an asynchronous callback to read the data at our posts reference
 myFirebaseRef.on("value", function(snapshot) {
   var json = snapshot.val();
   $("#description").val(json.description);
