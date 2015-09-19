@@ -16,40 +16,46 @@
 
 </head>
 
-<body>
+<body style="background-color:#1d3e53;">
   <nav style="margin-bottom: 0;border-radius: 0;box-shadow:none;"class="navbar navbar-inverse">
-    <div class="container-fluid">
+    <div style=""class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">Team Hack</a>
+        <a style="color:#86B404;"class="navbar-brand" href="index.html"><b>TeamHack</b></a>
       </div>
       <div>
         <ul class="nav navbar-nav">
-          <li><a href="index.html">Home</a></li>
-          <li class="active"><a href="questionaire.html">Tell Us About You</a></li>
+          <li class=""><a href="index.html">Home</a></li>
+          <li><a href="questionaire.html">Tell Us About You</a></li>
           <li><a href="users.html">Find Others</a></li>
           <li><a href="#">About</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><form id="frmLogin" role="form"></li>
           <li><a href="#">Login with</a></li>
-          <li><a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a></li>
+          <li style="padding-right:10px"><a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a></li>
+          <li style="padding-right:10px"><a href="#" class="btn btn-default" id="logout-button">Logout</a></li>
+
         </form>
       </ul>
     </div>
   </div>
 </nav>
 
-<div style="height:10vw;" class ="questiontoprow"></div>
+<div style="background-image:url(pictures/a.png);color:white;padding-top:10px;"class="questiontoprow">
+  <div class="col-md-offset-4">
 
+    <div style=""class="container">
+      <h1 style="padding-left:3%;color:#86B404;"><b>Update Your Profile</b></h1>
+    </div>
+  </div>
+</div>
 
-
-
-
+<div style="height:200px;background-color:#1d3e53">
 
   <div class="row">
-<center><h1 style="position:center;"> Find Your Hackathon Team The Easy Way </h1></center>
-<center>
-<form class="form-horizontal">
+  <center><h1 style="position:center;"> Update Your Information And Match With Hackers Just Like You! </h1></center>
+  <center>
+  <form class="form-horizontal">
   <div class="form-group">
     <label class="col-sm-2 control-label">Name</label>
     <div class="col-sm-10">
@@ -92,9 +98,19 @@
       <button onclick="SetData()" class="btn btn-default">Submit</button>
     </div>
   </div>
-</form>
-</center>
+  </form>
+  </center>
+  </div>
+
+
+
+
 </div>
+
+
+
+
+
 <script>
     function SetData()
     {
