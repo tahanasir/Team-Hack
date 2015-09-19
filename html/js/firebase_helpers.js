@@ -30,6 +30,9 @@ function autoCompleteTag(value, callback) {
 function updateUserLogin(authData){
 	var user = new Firebase("https://team-hack.firebaseio.com/user/" + authData.uid);
 	user.update({"image-link" : authData.github.profileImageURL});
+
+	$('.avatar').src(authData.github.profileImageURL);
+
 	user.once("value", function(snapshot){
 		if (!snapshot.child("email").exists()){
 			user.update({"email" : authData.github.email})
@@ -40,7 +43,7 @@ function updateUserLogin(authData){
 		}else{
 			$('.loggedinuser').text("Welcome " + snapshot.child("name").val());
 		}
-		$('.loggedinuser').show();
+		$('.loggedin').show();
 	});
 	console.log("Authenticated successfully with payload:", authData);
 }
@@ -54,10 +57,11 @@ $(document).ready(function() {
 		var user = new Firebase("https://team-hack.firebaseio.com/user/" + authData.uid);
 		user.once("value", function(snapshot){
 			$('.loggedinuser').text("Welcome " + snapshot.child("name").val());
+			$('.avatar').src(snapshot["image-link"]);
 		});
 	}else{
 		$('.logout').hide();
-		$('.loggedinuser').hide();
+		$('.loggedin').hide();
 	}
 	$('.bt-social').click(function() {
 		ref.authWithOAuthPopup("github", function(error, authData) {
@@ -76,6 +80,6 @@ $(document).ready(function() {
 		$('.loginwith').show();
 		$('.logingithub').show();
 		$('.logout').hide();
-		$('.loggedinuser').hide();
+		$('.loggedin').hide();
 	});
 });
