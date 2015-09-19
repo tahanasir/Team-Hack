@@ -10,6 +10,10 @@
   <link rel="shortcut icon" href="http://faviconist.com/icons/a1af2b6f9bbcb89ccfd576800fbd075e/favicon.ico">
   <link rel="apple-touch-icon" href="http://faviconist.com/icons/a1af2b6f9bbcb89ccfd576800fbd075e/favicon.ico">
   <link href='http://fonts.googleapis.com/css?family=Lobster|Raleway' rel='stylesheet' type='text/css'>
+
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+  
 </head>
 
 <body>
@@ -102,14 +106,16 @@
       var interested1 = document.getElementById("interested").value;
       var resumelink1 = document.getElementById("resume-link").value;
       var description1 = document.getElementById("description").value;
+
       var myFirebaseRef = new Firebase("https://team-hack.firebaseio.com/user/121/");
+
       var payload = {
-            "description": "description1",
-            "email": "email1",
-            "experience": "experience1",
-            "interested": "interested1",
-            "name": "name1",
-            "resume-link": "resumelink1",
+            "description": description1,
+            "email": email1,
+            "experience": experience1,
+            "interested": interested1,
+            "name": name1,
+            "resume-link": resumelink1
       };
       myFirebaseRef.set(payload);
     }
