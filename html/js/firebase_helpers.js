@@ -31,7 +31,7 @@ function updateUserLogin(authData){
 	var user = new Firebase("https://team-hack.firebaseio.com/user/" + authData.uid);
 	user.update({"image-link" : authData.github.profileImageURL});
 
-	$('.avatar').src(authData.github.profileImageURL);
+	$('.avatar').attr("src", authData.github.profileImageURL);
 
 	user.once("value", function(snapshot){
 		if (!snapshot.child("email").exists()){
@@ -57,7 +57,7 @@ $(document).ready(function() {
 		var user = new Firebase("https://team-hack.firebaseio.com/user/" + authData.uid);
 		user.once("value", function(snapshot){
 			$('.loggedinuser').text("Welcome " + snapshot.child("name").val());
-			$('.avatar').src(snapshot["image-link"]);
+			$('.avatar').attr("src", snapshot["image-link"]);
 		});
 	}else{
 		$('.logout').hide();
