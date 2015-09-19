@@ -37,27 +37,78 @@
     <div class="container">
       <h1 style="padding-left:25px;">TeamHack</h1>
  <p>Find Your Perfect Team Hackers!</p>
- <!--<script>
-    var myFirebaseRef = new Firebase("https://team-hack.firebaseio.com/");
-    myFirebaseRef.set({
-      User: {
-        placeholder: "test",
-      }
-    });
- </script>-->
+ <script>
+    function SetData()
+    {
+      var name1 = document.getElementById("name").value;
+      var email1 = document.getElementById("email").value;
+      var experience1 = document.getElementById("experience").value;
+      var interested1 = document.getElementById("interested").value;
+      var resumelink1 = document.getElementById("resume-link").value;
+      var description1 = document.getElementById("description").value;
+      var myFirebaseRef = new Firebase("https://team-hack.firebaseio.com/user/121/");
+      var payload = {
+            "description": "description1",
+            "email": "email1",
+            "experience": "experience1",
+            "interested": "interested1",
+            "name": "name1",
+            "resume-link": "resumelink1",
+      };
+      myFirebaseRef.set(payload);
+    }
+ </script>
       </div>
     </div>
   </div>
+  <div class="row">
+<center><h1 style="position:center;"> Find Your Hackathon Team The Easy Way </h1></center>
+<center>
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="name" placeholder="John Smith">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="email" placeholder="email@yourdomain.com">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Experience</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="experience" placeholder="eg. C++, Python">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Interested</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="interested" placeholder="eg. c#">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Resume Link</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="resume-link" placeholder="Dropbox?">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Description</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="description" placeholder="Put something fun here!">
+    </div>
+  </div>
 
-
-  <div class="row2">
-
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button onclick="SetData()" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+</form>
+</center>
 </div>
-
-
-  </body>
-
-
-
-
+</body>
 </html>
