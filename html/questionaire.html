@@ -110,14 +110,8 @@
 
 
 <script>
-  var name = document.getElementById("name").value;
-  var email = document.getElementById("email").value;
-  var experience = document.getElementById("experience").value;
-  var interested = document.getElementById("interested").value;
-  var resumelink = document.getElementById("resume-link").value;
-  var description = document.getElementById("description").value;
 
-  var myFirebaseRef = new Firebase("https://team-hack.firebaseio.com/user/122/");
+  var myFirebaseRef = new Firebase("https://team-hack.firebaseio.com/user/" + ref.getAuth().uid);
 
   // ------------------------- POPULATE DATA -------------------------
 // Attach an asynchronous callback to read the data at our posts reference
@@ -137,6 +131,12 @@ myFirebaseRef.on("value", function(snapshot) {
   // ------------------------- SEND DATA -------------------------
     function SetData()
     {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var experience = document.getElementById("experience").value;
+      var interested = document.getElementById("interested").value;
+      var resumelink = document.getElementById("resume-link").value;
+      var description = document.getElementById("description").value;
       var payload = {
             "description": description,
             "email": email,
