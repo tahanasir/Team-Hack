@@ -32,10 +32,9 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><form id="frmLogin" role="form"></li>
-          <li><a href="#">Login with</a></li>
-          <li style="padding-right:10px"><a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a></li>
-          <li style="padding-right:10px"><a href="#" class="btn btn-default" id="logout-button">Logout</a></li>
-
+          <li class="loginwith"><a href="#">Login with</a></li>
+          <li class="logingithub" style="padding-right:10px"><a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a></li>
+          <li class="logout" style="padding-right:10px"><a href="#" class="btn btn-default" id="logout-button">Logout</a></li>
         </form>
       </ul>
     </div>
@@ -101,18 +100,28 @@
 <script>
 
     $(document).ready(function() {
+  		var ref = new Firebase("https://team-hack.firebaseio.com");
+  		var authData = ref.getAuth();
+    	if (authData){
+			$('.loginwith').hide();
+			$('.logingithub').hide();
+    	}else{
+			$('.logout').hide();
+    	}
         $('.bt-social').click(function() {
-      		var ref = new Firebase("https://team-hack.firebaseio.com");
 	        ref.authWithOAuthPopup("github", function(error, authData) {
 	            if (error){
 	                console.log("Login Failed!", error);
 	            } else {
+					$('.loginwith').hide();
+					$('.logingithub').hide();
+					var user = new Firebase("https://team-hack.firebaseio.com/user/" + authData.uid);
+					user.update({"image-link" : authData.github.profileImageURL});
 	                console.log("Authenticated successfully with payload:", authData);
 	            }
 	        });
 	    });
 		$('#logout-button').click(function() {
-     		var ref = new Firebase("https://team-hack.firebaseio.com");
 			ref.unauth();
 		});
 	});
