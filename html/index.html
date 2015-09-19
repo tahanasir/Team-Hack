@@ -37,7 +37,9 @@
         <ul class="nav navbar-nav navbar-right">
           <li><form id="frmLogin" role="form"></li>
           <li><a href="#">Login with</a></li>
-          <li><a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a></li>
+          <li style="padding-right:10px"><a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a></li>
+          <li style="padding-right:10px"><a href="#" class="btn btn-default" id="logout-button">Logout</a></li>
+
         </form>
       </ul>
     </div>
@@ -115,6 +117,12 @@
         }
       });
       authClient.login('github');
+    });
+  });
+
+  $(document).ready(function() {
+    $('#logout-button').click(function() {
+      ref.unauth();
     });
   });
 
