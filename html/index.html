@@ -109,10 +109,11 @@
     $('.bt-social').click(function() {
       authClient = new FirebaseSimpleLogin(ref, function(error, user) {
         if (error) {
-          console.log("Login Failed!", error);
-        }
-        else {
-          console.log("Authenticated successfully with payload:", authData);
+          console.log('Authentication error: ', error);
+        } else if (user) {
+          console.log('User ' + user.id + ' authenticated via the ' + user.provider + ' provider!');
+        } else {
+          console.log("User is logged out.")
         }
       });
       authClient.login('github');
