@@ -6,6 +6,7 @@
 
     <!-- Firebase Simple Login -->
     <script src="https://cdn.firebase.com/js/simple-login/1.6.4/firebase-simple-login.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
@@ -14,27 +15,28 @@
     <div id="container" class="container">
         <!-- LOGIN -->
         <form id="frmLogin" role="form">
-         <h4>Login with</h4>
-         <!-- <a href="#" class="btn btn-danger bt-social" data-provider="google">Google+</a> --> <a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a>
-     </form>
- </div>
+           <h4>Login with</h4>
+           <!-- <a href="#" class="btn btn-danger bt-social" data-provider="google">Google+</a> --> <a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a>
+       </form>
+   </div>
 
- <script>
+<script>
 
     var ref = new Firebase("https://team-hack.firebaseio.com");
 
-    $('.bt-social').click(function() {
-       authClient = new FirebaseSimpleLogin(myRef, function(error, user) { 
-        if (error) {
-            console.log("Login Failed!", error);
-        } 
-
-        else {
-            console.log("Authenticated successfully with payload:", authData);
-        }
-    }
-    authClient.login('github');
-}));
+    $(document).ready(function() {
+        $('.bt-social').click(function() {
+            authClient = new FirebaseSimpleLogin(ref, function(error, user) { 
+                if (error) {
+                    console.log("Login Failed!", error);
+                } 
+                else {
+                    console.log("Authenticated successfully with payload:", authData);
+                }
+            });
+           authClient.login('github');
+        });
+    });
 
 </script>
 </body>

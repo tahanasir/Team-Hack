@@ -10,6 +10,15 @@
   <link rel="shortcut icon" href="http://faviconist.com/icons/a1af2b6f9bbcb89ccfd576800fbd075e/favicon.ico">
   <link rel="apple-touch-icon" href="http://faviconist.com/icons/a1af2b6f9bbcb89ccfd576800fbd075e/favicon.ico">
   <link href='http://fonts.googleapis.com/css?family=Lobster|Raleway' rel='stylesheet' type='text/css'>
+
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+
+  <!-- Firebase Simple Login -->
+  <script src="https://cdn.firebase.com/js/simple-login/1.6.4/firebase-simple-login.js"></script>
+
 </head>
 
 <body>
@@ -48,8 +57,8 @@
 
 <div class="row">
 
-<center><h1 style="position:center;"> Find Your Hackathon Team The Easy Way. </h1></center>
-<center><p style="position:center;font-size:20px; text-align:center;"> You go to Hackathons to work at your best. A team with people with similar project interests and diverse skills gives you the chance to not only learn more, but also hack at your greatest potential. HackTeam allows you to search through registered users like yourself and find people that you see fit to make your hack ideas a hack reality. </p></center>
+  <center><h1 style="position:center;"> Find Your Hackathon Team The Easy Way. </h1></center>
+  <center><p style="position:center;font-size:20px; text-align:center;"> You go to Hackathons to work at your best. A team with people with similar project interests and diverse skills gives you the chance to not only learn more, but also hack at your greatest potential. HackTeam allows you to search through registered users like yourself and find people that you see fit to make your hack ideas a hack reality. </p></center>
 </div>
 
 <div style ="padding-left:4%;padding-top:2%;"class="row2">
@@ -84,24 +93,29 @@
 
 <div id="foot">
 
-<p>Copyright <span class = "glyphicon glyphicon-copyright-mark"></span> 2015 TeamHack. Made with <span class = "glyphicon glyphicon-heart"></span> for Hack The North</p>
+  <p>Copyright <span class = "glyphicon glyphicon-copyright-mark"></span> 2015 TeamHack. Made with <span class = "glyphicon glyphicon-heart"></span> for Hack The North</p>
 </div>
 
 
 </body>
 </html>
 
-
-
-
-
 <script>
+
   var ref = new Firebase("https://team-hack.firebaseio.com");
-  ref.authWithOAuthPopup("github", function(error, authData) {
-    if (error) {
-      console.log("Login Failed!", error);
-    } else {
-      console.log("Authenticated successfully with payload:", authData);
-    }
+
+  $(document).ready(function() {
+    $('.bt-social').click(function() {
+      authClient = new FirebaseSimpleLogin(ref, function(error, user) { 
+        if (error) {
+          console.log("Login Failed!", error);
+        } 
+        else {
+          console.log("Authenticated successfully with payload:", authData);
+        }
+      });
+      authClient.login('github');
+    });
   });
+
 </script>
