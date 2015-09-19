@@ -38,7 +38,7 @@ function updateUserLogin(authData){
 			user.update({"name" : authData.github.displayName});
 			$('.loggedinuser').text("Welcome " + authData.github.displayName);
 		}else{
-			$('.loggedinuser').text("Welcome " + snapshot.child("name"));
+			$('.loggedinuser').text("Welcome " + snapshot.child("name").val());
 		}
 		$('.loggedinuser').show();
 	});
