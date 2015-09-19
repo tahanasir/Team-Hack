@@ -35,3 +35,18 @@
 	height: 40px;
 	width: 100%;
 }
+
+.userbg{
+   font-size: auto;
+    background: linear-gradient(
+        rgba(0, 31, 63, 0.50),
+        rgba(0, 31, 63, 0.40)
+      ), url(../pictures/a.png);;
+    padding-top: 20px;
+    padding-bottom: 2vw;
+    height: 100%;
+    padding-left: 2%;
+    padding-right:2%;
+    width:101.2%;
+    color: white;
+}
