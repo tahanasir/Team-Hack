@@ -98,32 +98,33 @@
 
 <script>
 
-    $(document).ready(function() {
-  		var ref = new Firebase("https://team-hack.firebaseio.com");
-  		var authData = ref.getAuth();
-    	if (authData){
-			$('.loginwith').hide();
-			$('.logingithub').hide();
-    	}else{
-			$('.logout').hide();
-    	}
-        $('.bt-social').click(function() {
-	        ref.authWithOAuthPopup("github", function(error, authData) {
-	            if (error){
-	                console.log("Login Failed!", error);
-	            } else {
-					$('.loginwith').hide();
-					$('.logingithub').hide();
-					var user = new Firebase("https://team-hack.firebaseio.com/user/" + authData.uid);
-					user.update({"image-link" : authData.github.profileImageURL});
-	                console.log("Authenticated successfully with payload:", authData);
-	            }
-              location.reload();
-	        });
-	    });
-		$('#logout-button').click(function() {
-			ref.unauth();
-		});
-	});
+  $(document).ready(function() {
+    var ref = new Firebase("https://team-hack.firebaseio.com");
+    var authData = ref.getAuth();
+    if (authData){
+     $('.loginwith').hide();
+     $('.logingithub').hide();
+   }else{
+     $('.logout').hide();
+   }
+   $('.bt-social').click(function() {
+     ref.authWithOAuthPopup("github", function(error, authData) {
+       if (error){
+         console.log("Login Failed!", error);
+       } else {
+         $('.loginwith').hide();
+         $('.logingithub').hide();
+         var user = new Firebase("https://team-hack.firebaseio.com/user/" + authData.uid);
+         user.update({"image-link" : authData.github.profileImageURL});
+         console.log("Authenticated successfully with payload:", authData);
+       }
+     });
+     location.reload();
+   });
+   
+   $('#logout-button').click(function() {
+     ref.unauth();
+   });
+ });
 
 </script>
