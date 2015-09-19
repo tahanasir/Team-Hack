@@ -35,36 +35,15 @@
   </div>
 </nav>
     
-    <div style="background-image:url(pictures/a.png);color:white;"class="jumbotron">
-      <div class="col-md-offset-4">
-
+<div style="background-image:url(pictures/a.png);color:white;"class="jumbotron">
+  <div class="col-md-offset-4">
     <div class="container">
       <h1 style="padding-left:25px;">TeamHack</h1>
- <p>Find Your Perfect Team Hackers!</p>
- <script>
-    function SetData()
-    {
-      var name1 = document.getElementById("name").value;
-      var email1 = document.getElementById("email").value;
-      var experience1 = document.getElementById("experience").value;
-      var interested1 = document.getElementById("interested").value;
-      var resumelink1 = document.getElementById("resume-link").value;
-      var description1 = document.getElementById("description").value;
-      var myFirebaseRef = new Firebase("https://team-hack.firebaseio.com/user/121/");
-      var payload = {
-            "description": "description1",
-            "email": "email1",
-            "experience": "experience1",
-            "interested": "interested1",
-            "name": "name1",
-            "resume-link": "resumelink1",
-      };
-      myFirebaseRef.set(payload);
-    }
- </script>
-      </div>
+      <p>Find Your Perfect Team Hackers!</p>
     </div>
   </div>
+</div>
+
   <div class="row">
 <center><h1 style="position:center;"> Find Your Hackathon Team The Easy Way </h1></center>
 <center>
@@ -114,5 +93,26 @@
 </form>
 </center>
 </div>
+<script>
+    function SetData()
+    {
+      var name1 = document.getElementById("name").value;
+      var email1 = document.getElementById("email").value;
+      var experience1 = document.getElementById("experience").value;
+      var interested1 = document.getElementById("interested").value;
+      var resumelink1 = document.getElementById("resume-link").value;
+      var description1 = document.getElementById("description").value;
+      var myFirebaseRef = new Firebase("https://team-hack.firebaseio.com/user/121/");
+      var payload = {
+            "description": "description1",
+            "email": "email1",
+            "experience": "experience1",
+            "interested": "interested1",
+            "name": "name1",
+            "resume-link": "resumelink1",
+      };
+      myFirebaseRef.set(payload);
+    }
+ </script>
 </body>
 </html>
