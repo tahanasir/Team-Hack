@@ -110,24 +110,40 @@
 
 
 <script>
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var experience = document.getElementById("experience").value;
+  var interested = document.getElementById("interested").value;
+  var resumelink = document.getElementById("resume-link").value;
+  var description = document.getElementById("description").value;
+
+  var myFirebaseRef = new Firebase("https://team-hack.firebaseio.com/user/122/");
+
+  // ------------------------- POPULATE DATA -------------------------
+// Attach an asynchronous callback to read the data at our posts reference
+myFirebaseRef.on("value", function(snapshot) {
+  var json = snapshot.val();
+  $("#description").val(json.description);
+  $("#email").val(json.email);
+  $("#experience").val(json.experience);
+  $("#interested").val(json.interested);
+  $("#name").val(json.name);
+  $("#resume-link").val(json["resume-link"]);  
+
+}, function (errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});
+
+  // ------------------------- SEND DATA -------------------------
     function SetData()
     {
-      var name1 = document.getElementById("name").value;
-      var email1 = document.getElementById("email").value;
-      var experience1 = document.getElementById("experience").value;
-      var interested1 = document.getElementById("interested").value;
-      var resumelink1 = document.getElementById("resume-link").value;
-      var description1 = document.getElementById("description").value;
-
-      var myFirebaseRef = new Firebase("https://team-hack.firebaseio.com/user/121/");
-
       var payload = {
-            "description": description1,
-            "email": email1,
-            "experience": experience1,
-            "interested": interested1,
-            "name": name1,
-            "resume-link": resumelink1
+            "description": description,
+            "email": email,
+            "experience": experience,
+            "interested": interested,
+            "name": name,
+            "resume-link": resumelink
       };
       myFirebaseRef.set(payload);
     }
