@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="utf-8">
 	<title>Team Hack</title>
@@ -13,43 +12,6 @@
 	<!-- Firebase -->
 	<script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
 	<script src="js/firebase_helpers.js"></script>
-
-	<script>
-		$(document).ready(function() {
-			var ref = new Firebase("https://team-hack.firebaseio.com");
-			var authData = ref.getAuth();
-			if (authData){
-				$('.loginwith').hide();
-				$('.logingithub').hide();
-				var user = new Firebase("https://team-hack.firebaseio.com/user/" + authData.uid);
-				user.once("value", function(snapshot){
-					$('.loggedinuser').text("Welcome " + snapshot.child("name").val());
-				});
-			}else{
-				$('.logout').hide();
-				$('.loggedinuser').hide();
-			}
-			$('.bt-social').click(function() {
-				ref.authWithOAuthPopup("github", function(error, authData) {
-					if (error){
-						console.log("Login Failed!", error);
-					} else {
-						$('.loginwith').hide();
-						$('.logingithub').hide();
-						$('.logout').show();
-						updateUserLogin(authData);
-					}
-				});
-			});
-			$('#logout-button').click(function() {
-				ref.unauth();
-				$('.loginwith').show();
-				$('.logingithub').show();
-				$('.logout').hide();
-				$('.loggedinuser').hide();
-			});
-		});
-	</script>
 </head>
 
 <body>  

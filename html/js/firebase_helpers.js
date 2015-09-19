@@ -44,3 +44,38 @@ function updateUserLogin(authData){
 	});
 	console.log("Authenticated successfully with payload:", authData);
 }
+
+$(document).ready(function() {
+	var ref = new Firebase("https://team-hack.firebaseio.com");
+	var authData = ref.getAuth();
+	if (authData){
+		$('.loginwith').hide();
+		$('.logingithub').hide();
+		var user = new Firebase("https://team-hack.firebaseio.com/user/" + authData.uid);
+		user.once("value", function(snapshot){
+			$('.loggedinuser').text("Welcome " + snapshot.child("name").val());
+		});
+	}else{
+		$('.logout').hide();
+		$('.loggedinuser').hide();
+	}
+	$('.bt-social').click(function() {
+		ref.authWithOAuthPopup("github", function(error, authData) {
+			if (error){
+				console.log("Login Failed!", error);
+			} else {
+				$('.loginwith').hide();
+				$('.logingithub').hide();
+				$('.logout').show();
+				updateUserLogin(authData);
+			}
+		});
+	});
+	$('#logout-button').click(function() {
+		ref.unauth();
+		$('.loginwith').show();
+		$('.logingithub').show();
+		$('.logout').hide();
+		$('.loggedinuser').hide();
+	});
+});
