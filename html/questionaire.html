@@ -1,32 +1,36 @@
 <!DOCTYPE html>
-
-
-<html>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
-<link href="css/main.css" rel="stylesheet">
+<html lang="en">
 
 <head>
-  <title>TeamHack</title>
+  <meta charset="utf-8">
+  <title>Team Hack</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link rel="shortcut icon" href="http://faviconist.com/icons/a1af2b6f9bbcb89ccfd576800fbd075e/favicon.ico">
+  <link rel="apple-touch-icon" href="http://faviconist.com/icons/a1af2b6f9bbcb89ccfd576800fbd075e/favicon.ico">
   <link href='http://fonts.googleapis.com/css?family=Lobster|Raleway' rel='stylesheet' type='text/css'>
-  <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
 </head>
 
 <body>
-    <nav style="margin-bottom: 0;border-radius: 0;box-shadow:none;"class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Team Hack</a>
-    </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Team</a></li>
-      </ul>
+  <nav style="margin-bottom: 0;border-radius: 0;box-shadow:none;"class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">Team Hack</a>
+      </div>
+      <div>
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="questionaire.html">Tell Us About You</a></li>
+          <li><a href="users.html">Find Others</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
         <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Sign In</a></li>
-    </ul>
+          <li><form id="frmLogin" role="form"></li>
+          <li><a href="#">Login with</a></li>
+          <li><a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a></li>
+        </form>
+      </ul>
     </div>
   </div>
 </nav>
