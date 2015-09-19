@@ -33,8 +33,6 @@
 						$('.loginwith').hide();
 						$('.logingithub').hide();
 						$('.logout').show();
-						$('.loggedinuser').val("Welcome " + authData.github.displayName);
-						$('.loggedinuser').show();
 						updateUserLogin(authData);
 					}
 				});
@@ -66,7 +64,7 @@
           <li><form id="frmLogin" role="form"></li>
           <li class="loginwith"><a href="#">Login with</a></li>
           <li class="logingithub" style="padding-right:10px"><a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a></li>
-          <li class="loggedinuser">Welcome ...</li>
+          <li><a class="loggedinuser" href="#">Welcome ...</a></li>
           <li class="logout" style="padding-right:10px"><a href="#" class="btn btn-default" id="logout-button">Logout</a></li>
         </form>
       </ul>

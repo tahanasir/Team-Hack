@@ -35,8 +35,12 @@ function updateUserLogin(authData){
 			user.update({"email" : authData.github.email})
 		}
 		if (!snapshot.child("name").exists()){
-			user.update({"name" : authData.github.displayName})
+			user.update({"name" : authData.github.displayName});
+			$('.loggedinuser').text("Welcome " + authData.github.displayName);
+		}else{
+			$('.loggedinuser').text("Welcome " + snapshot.child("name"));
 		}
+		$('.loggedinuser').show();
 	});
 	console.log("Authenticated successfully with payload:", authData);
 }
