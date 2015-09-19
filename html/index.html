@@ -26,9 +26,10 @@
         <li><a href="#">About</a></li>
       </ul>
         <ul class="nav navbar-nav navbar-right">
+        <li><form id="frmLogin" role="form"></li>
       <li><a href="#">Login with</a></li>
               <li><a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a></li>
-
+</form>
     </ul>
     </div>
   </div>
@@ -83,6 +84,8 @@
 <p>Copyright 2015 TeamHack. Made with ♥ for Hack The North</p>
 </div>
 >>>>>>> edc73a52a07916c675e3e27c4af29b41fe033c9a
+
+
   </body>
 </html>
 
@@ -93,3 +96,49 @@
 
 </html>
 >>>>>>> edc73a52a07916c675e3e27c4af29b41fe033c9a
+
+<script>
+
+var ref = new Firebase("https://team-hack.firebaseio.com");
+ref.authWithOAuthPopup("github", function(error, authData) {
+  if (error) {
+    console.log("Login Failed!", error);
+  } else {
+    console.log("Authenticated successfully with payload:", authData);
+  }
+});
+
+
+    function thirdPartyLogin(provider) {
+        var deferred = $.Deferred();
+
+        rootRef.authWithOAuthPopup(provider, function (err, user) {
+            if (err) {
+                deferred.reject(err);
+            }
+
+            if (user) {
+                deferred.resolve(user);
+            }
+        });
+
+        return deferred.promise();
+    };
+
+// Social buttons
+    controllers.login = function (form) {
+
+        $('.bt-social').on('click', function (e) {
+
+            var $currentButton = $(this);
+            var provider = $currentButton.data('provider');
+            var socialLoginPromise;
+            e.preventDefault();
+
+            socialLoginPromise = thirdPartyLogin(provider);
+            handleAuthResponse(socialLoginPromise, 'profile');
+
+        });
+
+    };
+</script
