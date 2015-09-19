@@ -1,10 +1,26 @@
 .row {
    font-size: auto;
     background: #1d3e53;
-    padding-bottom: 20px;
-    padding-left: 2%;
-    padding-right: 0px;
-    height: auto;
+    padding-top: 20px;
+    padding-bottom: 2vw;
+    height: 20%;
+    padding-left: 10%;
+    padding-right:10%;
     width:101.2%;
     color: white;
+}
+
+.row2 {
+   font-size: auto;
+    padding-bottom: 20px;
+    padding-left: 5%;
+    padding-right:5%;
+    height: auto;
+    width:101.2%;
+    height:250px;
+    color: white;
+    background: linear-gradient(
+        rgba(240, 228, 255, 0.60),
+        rgba(240, 228, 255, 0.40)
+      ), url(../img/a2.png);
 }
