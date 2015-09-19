@@ -57,7 +57,7 @@ $(document).ready(function() {
 		var user = new Firebase("https://team-hack.firebaseio.com/user/" + authData.uid);
 		user.once("value", function(snapshot){
 			$('.loggedinuser').text("Welcome " + snapshot.child("name").val());
-			$('.avatar').attr("src", snapshot["image-link"]);
+			$('.avatar').attr("src", snapshot["image-link"].val());
 		});
 	}else{
 		$('.logout').hide();
