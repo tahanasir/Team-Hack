@@ -114,10 +114,11 @@
 	            } else {
 					$('.loginwith').hide();
 					$('.logingithub').hide();
-          $('.logout').show();
 					var user = new Firebase("https://team-hack.firebaseio.com/user/" + authData.uid);
 					user.update({"image-link" : authData.github.profileImageURL});
 	                console.log("Authenticated successfully with payload:", authData);
+                            $('.logout').show();
+
 	            }
 	        });
 	    });
