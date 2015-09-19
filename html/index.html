@@ -13,10 +13,7 @@
   <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 
   <!-- Firebase -->
-  <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
-
-  <!-- Firebase Simple Login -->
-  <script src="https://cdn.firebase.com/js/simple-login/1.6.4/firebase-simple-login.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
 
 </head>
 
@@ -103,27 +100,21 @@
 
 <script>
 
-  var ref = new Firebase("https://team-hack.firebaseio.com");
-
-  $(document).ready(function() {
-    $('.bt-social').click(function() {
-      authClient = new FirebaseSimpleLogin(ref, function(error, user) {
-        if (error) {
-          console.log('Authentication error: ', error);
-        } else if (user) {
-          console.log('User ' + user.id + ' authenticated via the ' + user.provider + ' provider!');
-        } else {
-          console.log("User is logged out.")
-        }
-      });
-      authClient.login('github');
-    });
-  });
-
-  $(document).ready(function() {
-    $('#logout-button').click(function() {
-      ref.unauth();
-    });
-  });
+    $(document).ready(function() {
+        $('.bt-social').click(function() {
+      		var ref = new Firebase("https://team-hack.firebaseio.com");
+	        ref.authWithOAuthPopup("github", function(error, authData) {
+	            if (error){
+	                console.log("Login Failed!", error);
+	            } else {
+	                console.log("Authenticated successfully with payload:", authData);
+	            }
+	        });
+	    });
+		$('#logout-button').click(function() {
+     		var ref = new Firebase("https://team-hack.firebaseio.com");
+			ref.unauth();
+		});
+	});
 
 </script>
