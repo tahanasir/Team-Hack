@@ -145,7 +145,7 @@ myFirebaseRef.on("value", function(snapshot) {
             "name": name,
             "resume-link": resumelink
       };
-      myFirebaseRef.set(payload);
+      myFirebaseRef.update(payload);
     }
  </script>
 </body>
