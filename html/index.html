@@ -2,22 +2,52 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Team Hack</title>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/main.css" rel="stylesheet">
-  <link rel="shortcut icon" href="http://faviconist.com/icons/a1af2b6f9bbcb89ccfd576800fbd075e/favicon.ico">
-  <link rel="apple-touch-icon" href="http://faviconist.com/icons/a1af2b6f9bbcb89ccfd576800fbd075e/favicon.ico">
-  <link href='http://fonts.googleapis.com/css?family=Lobster|Raleway' rel='stylesheet' type='text/css'>
+	<meta charset="utf-8">
+	<title>Team Hack</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Lobster|Raleway' rel='stylesheet' type='text/css'>
 
-  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 
-  <!-- Firebase -->
-  <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+	<!-- Firebase -->
+	<script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+	<script src="js/firebase_helpers.js"></script>
 
-
-  <script src="js/firebase_helpers.js"></script>
-
+	<script>
+		$(document).ready(function() {
+			var ref = new Firebase("https://team-hack.firebaseio.com");
+			var authData = ref.getAuth();
+			if (authData){
+				$('.loginwith').hide();
+				$('.logingithub').hide();
+			}else{
+				$('.logout').hide();
+				$('.loggedinuser').hide();
+			}
+			$('.bt-social').click(function() {
+				ref.authWithOAuthPopup("github", function(error, authData) {
+					if (error){
+						console.log("Login Failed!", error);
+					} else {
+						$('.loginwith').hide();
+						$('.logingithub').hide();
+						$('.logout').show();
+						$('.loggedinuser').val("Welcome " + authData.github.displayName());
+						$('.loggedinuser').show();
+						updateUserLogin(authData);
+					}
+				});
+			});
+			$('#logout-button').click(function() {
+				ref.unauth();
+				$('.loginwith').show();
+				$('.logingithub').show();
+				$('.logout').hide();
+				$('.loggedinuser').hide();
+			});
+		});
+	</script>
 </head>
 
 <body>  
@@ -92,48 +122,9 @@
 </div>
 
 <div id="foot">
-
   <p>Copyright 2015 TeamHack. Made with love for Hack The North</p>
 </div>
 
 
 </body>
 </html>
-
-<script>
-
-  $(document).ready(function() {
-    var ref = new Firebase("https://team-hack.firebaseio.com");
-    var authData = ref.getAuth();
-    if (authData){
-     $('.loginwith').hide();
-     $('.logingithub').hide();
-   }else{
-     $('.logout').hide();
-			$('.loggedinuser').hide();
-   }
-   $('.bt-social').click(function() {
-     ref.authWithOAuthPopup("github", function(error, authData) {
-       if (error){
-         console.log("Login Failed!", error);
-       } else {
-         $('.loginwith').hide();
-         $('.logingithub').hide();
-					$('.logout').show();
-					$('.loggedinuser').val("Welcome " + authData.github.displayName());
-					$('.loggedinuser').show();
-					updateUserLogin(authData);
-       }
-     });
-   });
-
-   $('#logout-button').click(function() {
-     ref.unauth();
-			$('.loginwith').show();
-			$('.logingithub').show();
-			$('.logout').hide();
-			$('.loggedinuser').hide();
-   });
- });
-
-</script>

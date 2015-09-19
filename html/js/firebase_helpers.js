@@ -38,5 +38,5 @@ function updateUserLogin(authData){
 			user.update({"name" : authData.github.displayName})
 		}
 	});
-	// console.log("Authenticated successfully with payload:", authData);
+	console.log("Authenticated successfully with payload:", authData);
 }
