@@ -96,3 +96,9 @@ background-color:#1d3e53;
     width:101.2%;
     color: white;
 }
+
+.tagspace {
+  line-height: 2.5ex;
+  height: 7.5ex; /* 2.5ex for each visible line */
+  overflow: hidden;
+}
