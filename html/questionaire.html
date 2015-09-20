@@ -141,9 +141,13 @@
 
 <script>
   var ref =new Firebase("https://team-hack.firebaseio.com/");
+  
   ref.onAuth(function(authData) {
-    location.reload();
+    if (authData) {
+      location.reload();
+    }
   });
+
   if (!ref.getAuth()){
     $('#AuthModal').modal('show'); 
   
