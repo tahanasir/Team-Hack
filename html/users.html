@@ -191,7 +191,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 id="modalname"></h4>
+            <h4 id="modalname">Loading...</h4>
           </div>
           <div class="modal-body">
 
@@ -268,7 +268,7 @@
 <script>
   for (var i = 1; i <= 9; i++) {
     $("#name"+ i).text("Loading...");
-    $("#tags"+ i).text("Loading...");
+    $("#tags"+ i).text("");
   };
 
   // ------------------------- POPULATE DATA -------------------------
@@ -303,6 +303,15 @@
       console.log("The read failed: " + errorObject.code);
     });
   });
+
+  $('#myModal').on('hidden.bs.modal', function () {
+      $("#description").text("");
+      $("#email").text("");
+      $("#experience").text("");
+      $("#interested").text("");
+      $('#modalname').text("Loading...");
+      $("#resume-link").text("");
+  })
 </script>
 
 </body>
