@@ -121,7 +121,7 @@
 </div>
   <!-- Modal -->
   <div class="blacktext">
-    <div class="modal fade" id="AuthModal" >
+    <div class="modal fade" id="AuthModal" data-backdrop="static" data-keyboard="false">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -131,7 +131,7 @@
             Please log in to see this page.
           </div>
           <div class="modal-footer">
-            <a type="button" class="btn btn-default bt-social" data-provider="github">Log In via GitHub</a>
+            <a type="button" class="btn btn-default bt-social" data-provider="github" href="questionaire.html">Log In via GitHub</a>
             <a type="button" class="btn btn-default" href="index.html">Go Back to Home</a>
           </div>
         </div>
@@ -147,6 +147,7 @@
   
   }
 $('#AuthModal').on('shown.bs.modal', function () {
+  
     
 });
   // ------------------------- POPULATE DATA -------------------------
