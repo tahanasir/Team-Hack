@@ -258,8 +258,8 @@
 
   <div class="col-lg-12 col-md-12 col-sm-12">
     <ul class="pager">
-      <li class="previous"><a href="#">Previous</a></li>
-      <li class="next"><a href="#">Next</a></li>
+      <li class="previous"><a href="#" id="first">First</a></li>
+      <li class="next"><a href="#" id="next">Next</a></li>
     </ul>
   </div>
 
@@ -271,19 +271,47 @@
     $("#tags"+ i).text("");
   };
 
-  // ------------------------- POPULATE DATA -------------------------
+  Populate("github");
+
+  // ------------------------- Next DATA -------------------------
+  $( "#next" ).click(function() {
+    Populate($("#full9").attr("uid")+" ");
+  });
+
+  // ------------------------- First DATA -------------------------
+  $( "#first" ).click(function() {
+    Populate("github");
+  });
+
+
+  //  ------------------------- POPULATE DATA -------------------------
+  function Populate(start) {
   var users = new Firebase("https://team-hack.firebaseio.com/user/");
-  users.orderByKey().startAt("github").limitToFirst(9).once("value", function(snapshot){
+  users.orderByKey().startAt(start).limitToFirst(9).once("value", function(snapshot){
     var counter = 1;
     snapshot.forEach(function(eachUser){
       $("#name" + counter).text(eachUser.val().name);
       $("#tags" + counter).text(eachUser.val().description);
       $("#userthumb" + counter).attr("src",eachUser.val()["image-link"]);
       $("#full"+counter).attr("uid",eachUser.key());
+      $("#full"+counter).css('visibility','visible');
+      $("#chat"+counter).css('visibility','visible');
       counter++;
     });
+    if (counter <9)
+    {
+      for(counter;counter<=9;counter++)
+      {
+      $("#name" + counter).text("This could be you!");
+      $("#tags" + counter).text("");
+      $("#userthumb" + counter).attr("src","https://avatars.githubusercontent.com/u/0?v=3");
+      $("#full"+counter).attr("");
+      $("#full"+counter).css('visibility','hidden');
+      $("#chat"+counter).css('visibility','hidden');
+      }
+    }
   });
-
+  }
 
   // ------------------------- POPULATE MODAL -------------------------
 
