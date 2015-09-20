@@ -1,11 +1,11 @@
 function updateTags(){
 	$("input[data-role='tagsinput']").tagsinput('items').forEach(function (item){
 		var ref = new Firebase("https://team-hack.firebaseio.com/tags");
-
+		console.log(item);
 		ref.orderByValue().equalTo(item).once("value", function(snapshot) {
-			var usertags = new Firebase("https://team-hack.firebaseio.com/tags-users/" + snapshot.key());
+			//var usertags = new Firebase("https://team-hack.firebaseio.com/tags-users/" + snapshot.key());
 			console.log("https://team-hack.firebaseio.com/tags-users/" + snapshot.key());
-			usertags.push(ref.getAuth.uid);
+			//usertags.push(ref.getAuth.uid);
 		});
 	});
 }
