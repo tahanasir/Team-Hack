@@ -8,6 +8,7 @@
   <link href='http://fonts.googleapis.com/css?family=Lobster|Raleway' rel='stylesheet' type='text/css'>
 
   <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 
   <!-- Firebase -->
   <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
@@ -167,6 +168,31 @@
           </div>
         </div>
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="blacktext">
+<div class="modal" id="myModal" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4>Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
 <div class="col-lg-12 col-md-12 col-sm-12">
   <ul class="pager">
   <li class="previous"><a href="#">Previous</a></li>
@@ -177,6 +203,10 @@
 </div>
 
  <script>
+ $('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
+
   for (var i = 1; i <= 9; i++) {
     $("#name"+ i).text("Loading...");
     $("#tags"+ i).text("Loading...");
@@ -187,24 +217,11 @@
   users.orderByKey().startAt("github").limitToFirst(9).once("value", function(snapshot){
     var counter = 1;
     snapshot.forEach(function(eachUser){
-      //window.alert(eachUser.val().name)
       $("#name" + counter).text(eachUser.val().name);
       $("#userthumb" + counter).attr("src",eachUser.val()["image-link"]);
       counter++;
     });
   });
-  /*
-myFirebaseRef.on("value", function(snapshot) {
-  var json = snapshot.val();
-  $("#userthumb1").attr("src","https://avatars.githubusercontent.com/u/4333169?v=3");
-  $("#name1").text(json.name);
-  $("#tags1").html('<div class="tag">test</div><div class="tag">test</div><div class="tag">test</div>');
-
-
-}, function (errorObject) {
-  console.log("The read failed: " + errorObject.code);
-});
-*/
  </script>
   </body>
 </html>

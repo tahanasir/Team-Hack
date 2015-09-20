@@ -120,3 +120,7 @@ background-color:#1d3e53;
   height: 7.5ex; /* 2.5ex for each visible line */
   overflow: hidden;
 }
+
+.blacktext {
+  color: #000000;
+}
