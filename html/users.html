@@ -14,6 +14,17 @@
   <script src="js/firebase_helpers.js"></script>
   <script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
 
+  <script>
+    function CreateSkypeButton(username) {
+      Skype.ui({
+        name: "call",
+        element: "SkypeButton",
+        participants: [username],
+        imageSize: 32
+      });
+    }
+  </script>
+
 </head>
 
 <body style="background-color:#1d3e53;">
@@ -110,7 +121,9 @@
         <div class="tagspace" id="tags5"></div>
         <div class="text-right">
           <a class="btn btn-default" id="full5">Full Profile</a>
-          <div id="SkypeButton_Call_william.yang97_1"></div>
+
+          <div id="SkypeButton"><script>CreateSkypeButton("william.yang97")</script></div>
+
         </div>
       </div>
     </div>
@@ -206,15 +219,6 @@ myFirebaseRef.on("value", function(snapshot) {
   console.log("The read failed: " + errorObject.code);
 });
 */
-</script>
-
-<script>
-  Skype.ui({
-    "name": "call",
-    "element": "SkypeButton_Call_william.yang97_1",
-    "participants": ["william.yang97"],
-    "imageSize": 32
-  });
 </script>
 
 </body>
