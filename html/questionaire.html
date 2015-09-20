@@ -9,6 +9,7 @@
   <link href='http://fonts.googleapis.com/css?family=Lobster|Raleway' rel='stylesheet' type='text/css'>
 
   <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 
   <!-- Firebase -->
   <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
@@ -17,7 +18,6 @@
   <script src="js/bootstrap-tagsinput.min.js"></script>
   <script src="js/tags.js"></script>
   <script src="js/firebase_helpers.js"></script>
-
 </head>
 
 <body>
@@ -28,17 +28,22 @@
       </div>
       <div>
         <ul class="nav navbar-nav">
-          <li><a href="index.html">Home</a></li>
-          <li class="active"><a href="questionaire.html">Update Info</a></li>
-          <li><a href="users.html">Find Hackers</a></li>
-          <li class=""><a href="team.html">My Team</a></li>
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="questionaire.html">Update Info</a></li>
+          <li class="active"><a href="users.html">Find Hackers</a></li>
+          <li><a href="team.html">My Team</a></li>
 
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><form id="frmLogin" role="form"></li>
           <li class="loginwith"><a href="#">Login with</a></li>
           <li class="logingithub" style="padding-right:10px"><a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a></li>
-          <li><a class="loggedinuser" href="#">Welcome ...</a></li>
+          <li class="loggedin">
+            <a class="loggedinuser" href="#">Welcome ...</a>
+          </li>
+          <li class="loggedin" style="padding-top:5px; padding-bottom:5px">
+            <a href="#" style="padding-top:0px; padding-bottom:0px; padding-left:0px"><img class="avatar" height="40" width="40" src=""></a>
+          </li>
           <li class="logout" style="padding-right:10px"><a href="#" class="btn btn-default" id="logout-button">Logout</a></li>
         </form>
       </ul>

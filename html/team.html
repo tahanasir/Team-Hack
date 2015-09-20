@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <title>Team Hack</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
-  <link rel="shortcut icon" href="http://faviconist.com/icons/a1af2b6f9bbcb89ccfd576800fbd075e/favicon.ico">
-  <link rel="apple-touch-icon" href="http://faviconist.com/icons/a1af2b6f9bbcb89ccfd576800fbd075e/favicon.ico">
   <link href='http://fonts.googleapis.com/css?family=Lobster|Raleway' rel='stylesheet' type='text/css'>
+
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+  <script src="js/firebase_helpers.js"></script>
+  <script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
 </head>
 
-<body style="background-color:#1d3e53;">
+<body>
   <nav style="margin-bottom: 0;border-radius: 0;box-shadow:none;"class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -20,9 +24,9 @@
       </div>
       <div>
         <ul class="nav navbar-nav">
-          <li class=""><a href="index.html">Home</a></li>
-          <li > <a href="questionaire.html">Update Info</a></li>
-          <li class=""><a href="users.html">Find Hackers</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="questionaire.html">Update Info</a></li>
+          <li><a href="users.html">Find Hackers</a></li>
           <li class="active"><a href="team.html">My Team</a></li>
 
         </ul>
@@ -30,6 +34,12 @@
           <li><form id="frmLogin" role="form"></li>
           <li class="loginwith"><a href="#">Login with</a></li>
           <li class="logingithub" style="padding-right:10px"><a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a></li>
+          <li class="loggedin">
+            <a class="loggedinuser" href="#">Welcome ...</a>
+          </li>
+          <li class="loggedin" style="padding-top:5px; padding-bottom:5px">
+            <a href="#" style="padding-top:0px; padding-bottom:0px; padding-left:0px"><img class="avatar" height="40" width="40" src=""></a>
+          </li>
           <li class="logout" style="padding-right:10px"><a href="#" class="btn btn-default" id="logout-button">Logout</a></li>
         </form>
       </ul>
