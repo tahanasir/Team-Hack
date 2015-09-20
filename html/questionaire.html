@@ -131,7 +131,7 @@
             Please log in to see this page.
           </div>
           <div class="modal-footer">
-            <a type="button" class="btn btn-default bt-social" data-provider="github" href="questionaire.html">Log In via GitHub</a>
+            <a type="button" class="btn btn-default bt-social" data-provider="github">Log In via GitHub</a>
             <a type="button" class="btn btn-default" href="index.html">Go Back to Home</a>
           </div>
         </div>
@@ -141,7 +141,9 @@
 
 <script>
   var ref =new Firebase("https://team-hack.firebaseio.com/");
-
+  ref.onAuth(function(authData) {
+    location.reload();
+  }
   if (!ref.getAuth()){
     $('#AuthModal').modal('show'); 
   
