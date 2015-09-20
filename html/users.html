@@ -16,14 +16,14 @@
   <script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
 
   <script>
-    function CreateSkypeButton(username) {
-      Skype.ui({
-        name: "call",
-        element: "SkypeButton",
-        participants: [username],
-        imageSize: 16
-      });
-    }
+  function CreateSkypeButton(username) {
+    Skype.ui({
+      name: "call",
+      element: "SkypeButton",
+      participants: [username],
+      imageSize: 16
+    });
+  }
   </script>
 
 </head>
@@ -182,42 +182,94 @@
     </div>
   </div>
 
-<!-- Modal -->
-<div class="blacktext">
-<div class="modal fade" id="myModal" >
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 id="modalname"></h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <!-- Modal -->
+  <div class="blacktext">
+    <div class="modal fade" id="myModal" >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 id="modalname"></h4>
+          </div>
+          <div class="modal-body">
+
+            <form style="width:100%;" class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                  <div class="form-control-static" id="email" ></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Experience</label>
+                <div class="col-sm-10">
+                  <div class="form-control-static" id="experience"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Interested</label>
+                <div class="col-sm-10">
+                  <div class="form-control-static" id="interested"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Resume Link</label>
+                <div class="col-sm-10">
+                  <div class="form-control-static" id="resume-link"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Description</label>
+                <div class="col-sm-10">
+                  <div class="form-control-static" id="description"></div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+            <!-- Modal -->
+            <div class="blacktext">
+              <div class="modal fade" id="myModal" >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 id="modalname"></h4>
+                    </div>
+                    <div class="modal-body">
+                      ...
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
 
-<div class="col-lg-12 col-md-12 col-sm-12">
-  <ul class="pager">
-  <li class="previous"><a href="#">Previous</a></li>
-  <li class="next"><a href="#">Next</a></li>
-</ul>
-</div>
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <ul class="pager">
+      <li class="previous"><a href="#">Previous</a></li>
+      <li class="next"><a href="#">Next</a></li>
+    </ul>
+  </div>
 
 </div>
 
- <script>
- 
+<script>
 
-  for (var i = 1; i <= 9; i++) {
-    $("#name"+ i).text("Loading...");
-    $("#tags"+ i).text("Loading...");
-  };
+
+for (var i = 1; i <= 9; i++) {
+  $("#name"+ i).text("Loading...");
+  $("#tags"+ i).text("Loading...");
+};
 
   // ------------------------- POPULATE DATA -------------------------
   var users = new Firebase("https://team-hack.firebaseio.com/user/");
@@ -234,12 +286,12 @@
 
   // ------------------------- POPULATE MODAL -------------------------
 
-    $('#myModal').on('shown.bs.modal', function (e) {
-$('#modalname').text(e.relatedTarget.id);
+  $('#myModal').on('shown.bs.modal', function (e) {
+    $('#modalname').text(e.relatedTarget.id);
   }
   );
- </script>
-  </body>
+  </script>
+</body>
 </script>
 
 </body>
