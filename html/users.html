@@ -192,39 +192,7 @@
         <h4 id="modalname"></h4>
       </div>
       <div class="modal-body">
-        
-  <form style="width:100%;" class="form-horizontal">
-  <div class="form-group">
-    <label class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-10">
-      <div class="form-control-static" id="email" ></div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="col-sm-2 control-label">Experience</label>
-    <div class="col-sm-10">
-      <div class="form-control-static" id="experience"></div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="col-sm-2 control-label">Interested</label>
-    <div class="col-sm-10">
-      <div class="form-control-static" id="interested"></div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="col-sm-2 control-label">Resume Link</label>
-    <div class="col-sm-10">
-      <div class="form-control-static" id="resume-link"></div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="col-sm-2 control-label">Description</label>
-    <div class="col-sm-10">
-      <div class="form-control-static" id="description"></div>
-    </div>
-  </div>
-  </form>
+        ...
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -257,7 +225,6 @@
     var counter = 1;
     snapshot.forEach(function(eachUser){
       $("#name" + counter).text(eachUser.val().name);
-      $("#tags" + counter).text(eachUser.val().description);
       $("#userthumb" + counter).attr("src",eachUser.val()["image-link"]);
       $("#full"+counter).attr("uid",eachUser.key());
       counter++;
@@ -268,21 +235,7 @@
   // ------------------------- POPULATE MODAL -------------------------
 
     $('#myModal').on('shown.bs.modal', function (e) {
-    var uid = $('#'+e.relatedTarget.id).attr("uid"); 
-    var user = new Firebase("https://team-hack.firebaseio.com/user/"+ uid);
-    user.on("value", function(snapshot) {
-    var json = snapshot.val();
-    $("#description").text(json.description);
-    $("#email").text(json.email);
-    $("#experience").text(json.experience);
-    $("#interested").text(json.interested);
-    $('#modalname').text(json.name);
-    $("#resume-link").text(json["resume-link"]);
-
-}, function (errorObject) {
-  console.log("The read failed: " + errorObject.code);
-});
-
+$('#modalname').text(e.relatedTarget.id);
   }
   );
  </script>
