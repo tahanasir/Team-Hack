@@ -70,7 +70,7 @@
         <h3 id="name1"></h3>
         <div class="tagspace" id="tags1"></div>
         <div class="text-right">
-          <a class="btn btn-default" id="full1">Full Profile</a>
+          <a class="btn btn-default" id="full1" data-toggle="modal" data-target="#myModal">Full Profile</a>
         </div>
       </div>
     </div>
@@ -82,7 +82,7 @@
         <h3 id="name2"></h3>
         <div class="tagspace" id="tags2"></div>
         <div class="text-right">
-          <a class="btn btn-default" id="full2">Full Profile</a>
+          <a class="btn btn-default" id="full2" data-toggle="modal" data-target="#myModal">Full Profile</a>
           <a class="btn btn-default" id="chat2">Chat</a>
         </div>
       </div>
@@ -95,7 +95,7 @@
         <h3 id="name3"></h3>
         <div class="tagspace" id="tags3"></div>
         <div class="text-right">
-          <a class="btn btn-default" id="full3">Full Profile</a>
+          <a class="btn btn-default" id="full3" data-toggle="modal" data-target="#myModal">Full Profile</a>
           <a class="btn btn-default" id="chat3">Chat</a>
         </div>
       </div>
@@ -108,7 +108,7 @@
         <h3 id="name4"></h3>
         <div class="tagspace" id="tags4"></div>
         <div class="text-right">
-          <a class="btn btn-default" id="full4">Full Profile</a>
+          <a class="btn btn-default" id="full4" data-toggle="modal" data-target="#myModal">Full Profile</a>
           <a class="btn btn-default" id="chat4">Chat</a>
         </div>
       </div>
@@ -121,7 +121,7 @@
         <h3 id="name5"></h3>
         <div class="tagspace" id="tags5"></div>
         <div class="text-right">
-          <a class="btn btn-default" id="full5">Full Profile</a>
+          <a class="btn btn-default" id="full5" data-toggle="modal" data-target="#myModal">Full Profile</a>
 
           <div id="SkypeButton" class="btn btn-default"><script>CreateSkypeButton("william.yang97")</script></div>
 
@@ -136,7 +136,7 @@
         <h3 id="name6"></h3>
         <div class="tagspace" id="tags6"></div>
         <div class="text-right">
-          <a class="btn btn-default" id="full6">Full Profile</a>
+          <a class="btn btn-default" id="full6" data-toggle="modal" data-target="#myModal">Full Profile</a>
           <a class="btn btn-default" id="chat6">Chat</a>
         </div>
       </div>
@@ -149,7 +149,7 @@
         <h3 id="name7"></h3>
         <div class="tagspace" id="tags7"></div>
         <div class="text-right">
-          <a class="btn btn-default" id="full7">Full Profile</a>
+          <a class="btn btn-default" id="full7" data-toggle="modal" data-target="#myModal">Full Profile</a>
           <a class="btn btn-default" id="chat7">Chat</a>
         </div>
       </div>
@@ -162,7 +162,7 @@
         <h3 id="name8"></h3>
         <div class="tagspace" id="tags8"></div>
         <div class="text-right">
-          <a class="btn btn-default" id="full8">Full Profile</a>
+          <a class="btn btn-default" id="full8" data-toggle="modal" data-target="#myModal">Full Profile</a>
           <a class="btn btn-default" id="chat8">Chat</a>
         </div>
       </div>
@@ -175,26 +175,21 @@
         <h3 id="name9"></h3>
         <div class="tagspace" id="tags9"></div>
         <div class="text-right">
-          <a class="btn btn-default" id="full9">Full Profile</a>
+          <a class="btn btn-default" id="full9" data-toggle="modal" data-target="#myModal">Full Profile</a>
           <a class="btn btn-default" id="chat9">Chat</a>
         </div>
       </div>
     </div>
   </div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
-
 <!-- Modal -->
 <div class="blacktext">
-<div class="modal" id="myModal" >
+<div class="modal fade" id="myModal" >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4>Modal title</h4>
+        <h4 id="modalname"></h4>
       </div>
       <div class="modal-body">
         ...
@@ -217,9 +212,7 @@
 </div>
 
  <script>
- $('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').focus()
-})
+ 
 
   for (var i = 1; i <= 9; i++) {
     $("#name"+ i).text("Loading...");
@@ -233,9 +226,18 @@
     snapshot.forEach(function(eachUser){
       $("#name" + counter).text(eachUser.val().name);
       $("#userthumb" + counter).attr("src",eachUser.val()["image-link"]);
+      $("#full"+counter).attr("uid",eachUser.key());
       counter++;
     });
   });
+
+
+  // ------------------------- POPULATE MODAL -------------------------
+
+    $('#myModal').on('shown.bs.modal', function (e) {
+$('#modalname').text(e.relatedTarget.id);
+  }
+  );
  </script>
   </body>
 </script>
