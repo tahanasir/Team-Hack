@@ -123,8 +123,10 @@
         <div class="text-right">
           <a class="btn btn-default" id="full5" data-toggle="modal" data-target="#myModal">Full Profile</a>
 
-          <div id="SkypeButton" class="btn btn-default"><script>CreateSkypeButton("william.yang97")</script></div>
-
+          <a class="btn btn-default" id="full5">
+            <div id="SkypeButton" style="height:16px; margin-top:-12px;;"><script>CreateSkypeButton("william.yang97")</script></div>
+          </a>
+          
         </div>
       </div>
     </div>
@@ -182,36 +184,36 @@
     </div>
   </div>
 
-<!-- Modal -->
-<div class="blacktext">
-<div class="modal fade" id="myModal" >
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 id="modalname"></h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <!-- Modal -->
+  <div class="blacktext">
+    <div class="modal fade" id="myModal" >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 id="modalname"></h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
 
-<div class="col-lg-12 col-md-12 col-sm-12">
-  <ul class="pager">
-  <li class="previous"><a href="#">Previous</a></li>
-  <li class="next"><a href="#">Next</a></li>
-</ul>
-</div>
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <ul class="pager">
+      <li class="previous"><a href="#">Previous</a></li>
+      <li class="next"><a href="#">Next</a></li>
+    </ul>
+  </div>
 
 </div>
 
- <script>
+<script>
  
 
   for (var i = 1; i <= 9; i++) {
@@ -234,12 +236,12 @@
 
   // ------------------------- POPULATE MODAL -------------------------
 
-    $('#myModal').on('shown.bs.modal', function (e) {
-$('#modalname').text(e.relatedTarget.id);
+  $('#myModal').on('shown.bs.modal', function (e) {
+    $('#modalname').text(e.relatedTarget.id);
   }
   );
- </script>
-  </body>
+</script>
+</body>
 </script>
 
 </body>
