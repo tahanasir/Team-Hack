@@ -1,29 +1,11 @@
-function getTagID(value, callback) {
-	var ref = new Firebase("https://team-hack.firebaseio.com/tags");
+function updateTags(){
+	$("input[data-role='tagsinput']").tagsinput('items').each(function (item){
+		var ref = new Firebase("https://team-hack.firebaseio.com/tags");
 
-	ref.orderByValue().equalTo(value).once("value", function(id){callback(id)});
-}
-
-function addTag(value, callback) {
-	var lookup = new Firebase("https://team-hack.firebaseio.com/tags/");
-	ref.push(value);
-	getTagID(value, callback);
-}
-
-function getOrAddTag(value, callback){
-	getTagID(value, function(id){
-		if (id){
-			callback(id);
-		}else{
-			addTag(value, callback)
-		}
-	});
-}
-
-function autoCompleteTag(value, callback) {
-	var ref = new Firebase("https://team-hack.firebaseio.com/tags");
-	ref.orderByValue().startAt(value).endAt(value + "~").once("value", function(snapshot) {
-		callback(snapshot.val());
+		ref.orderByValue().equalTo(item).once("value", function(snapshot) {
+			var usertags = new Firebase("https://team-hack.firebaseio.com/tags-users/" + snapshot.key());
+			usertags.push(ref.getAuth.uid);
+		});
 	});
 }
 
