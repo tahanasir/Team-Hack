@@ -182,29 +182,29 @@
     $("#tags"+ i).text("Loading...");
   };
 
-  var ref = new Firebase("https://team-hack.firebaseio.com/");
-  var myFirebaseRef = new Firebase("https://team-hack.firebaseio.com/user/122");
-
   // ------------------------- POPULATE DATA -------------------------
+  var users = new Firebase("https://team-hack.firebaseio.com/user/");
+  users.orderByKey().startAt("github").limitToFirst(9).once("value", function(snapshot){
+    var counter = 1;
+    snapshot.forEach(function(eachUser){
+      //window.alert(eachUser.val().name)
+      $("#name" + counter).text(eachUser.val().name);
+      $("#userthumb" + counter).attr("src",eachUser.val()["image-link"]);
+      counter++;
+    });
+  });
+  /*
 myFirebaseRef.on("value", function(snapshot) {
   var json = snapshot.val();
-<<<<<<< Updated upstream
   $("#userthumb1").attr("src","https://avatars.githubusercontent.com/u/4333169?v=3");
   $("#name1").text(json.name);
   $("#tags1").html('<div class="tag">test</div><div class="tag">test</div><div class="tag">test</div>');
-=======
-  $("#description").val(json.description);
-  $("#email").val(json.email);
-  $("#experience").val(json.experience);
-  $("#interested").val(json.interested);
-  $("#name").val(json.name);
-  $("#resume-link").val(json["resume-link"]);
->>>>>>> Stashed changes
+
 
 }, function (errorObject) {
   console.log("The read failed: " + errorObject.code);
 });
-
+*/
  </script>
   </body>
 </html>
