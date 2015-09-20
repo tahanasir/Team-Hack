@@ -45,7 +45,7 @@
    background: linear-gradient(
        rgba(0, 31, 63, 0.50),
        rgba(0, 31, 63, 0.40)
-     ), url(../pictures/a.png);;
+     ), url(../pictures/a.png);
     padding-top: 20px;
     padding-bottom: 3vw;
     height: 20%;
@@ -58,7 +58,7 @@
 .rownew{
   font-family: Raleway;
    font-size: auto;
-   background:#1d3e53;
+   background: #1d3e53;
     padding-top: 20px;
     padding-bottom: 3vw;
     height: 20%;
