@@ -323,7 +323,15 @@
       $("#experience").text(json.experience);
       $("#interested").text(json.interested);
       $('#modalname').text(json.name);
-      $("#resume-link").text(json["resume-link"]);
+      if (json["resume-link"])
+      {
+        $("#resume-link").html("<a target='_blank' href='" + json["resume-link"] + "'>Click Here</a>");
+      }
+      else
+      {
+        $("#resume-link").html("");
+      }
+      
 
     }, function (errorObject) {
       console.log("The read failed: " + errorObject.code);
