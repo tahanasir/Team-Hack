@@ -38,8 +38,13 @@ function updateUserLogin(authData){
 			user.update({"email" : authData.github.email})
 		}
 		if (!snapshot.child("name").exists()){
-			user.update({"name" : authData.github.displayName});
-			$('.loggedinuser').text("Welcome " + authData.github.displayName);
+			if (authData.github.displayName){
+				user.update({"name" : authData.github.displayName});
+				$('.loggedinuser').text("Welcome " + authData.github.displayName);
+			}else{
+				user.update({"name" : authData.github.username});
+				$('.loggedinuser').text("Welcome " + authData.github.username);
+			}
 		}else{
 			$('.loggedinuser').text("Welcome " + snapshot.child("name").val());
 		}

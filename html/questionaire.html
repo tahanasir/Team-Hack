@@ -136,8 +136,6 @@ myFirebaseRef.on("value", function(snapshot) {
       var resumelink = document.getElementById("resume-link").value;
       var description = document.getElementById("description").value;
 
-      $("input[data-role='tagsinput']").tagsinput('items')
-
       var payload = {
             "description": description,
             "email": email,
