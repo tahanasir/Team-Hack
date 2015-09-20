@@ -264,8 +264,6 @@
 </div>
 
 <script>
-
-
 for (var i = 1; i <= 9; i++) {
   $("#name"+ i).text("Loading...");
   $("#tags"+ i).text("Loading...");
@@ -277,6 +275,7 @@ for (var i = 1; i <= 9; i++) {
     var counter = 1;
     snapshot.forEach(function(eachUser){
       $("#name" + counter).text(eachUser.val().name);
+      $("#tags" + counter).text(eachUser.val().description);
       $("#userthumb" + counter).attr("src",eachUser.val()["image-link"]);
       $("#full"+counter).attr("uid",eachUser.key());
       counter++;
@@ -287,12 +286,22 @@ for (var i = 1; i <= 9; i++) {
   // ------------------------- POPULATE MODAL -------------------------
 
   $('#myModal').on('shown.bs.modal', function (e) {
-    $('#modalname').text(e.relatedTarget.id);
-  }
-  );
+    var uid = $('#'+e.relatedTarget.id).attr("uid"); 
+    var user = new Firebase("https://team-hack.firebaseio.com/user/"+ uid);
+    user.on("value", function(snapshot) {
+      var json = snapshot.val();
+      $("#description").text(json.description);
+      $("#email").text(json.email);
+      $("#experience").text(json.experience);
+      $("#interested").text(json.interested);
+      $('#modalname').text(json.name);
+      $("#resume-link").text(json["resume-link"]);
+
+    }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
+  });
   </script>
-</body>
-</script>
 
 </body>
 </html>
