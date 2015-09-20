@@ -4,6 +4,7 @@ function updateTags(){
 
 		ref.orderByValue().equalTo(item).once("value", function(snapshot) {
 			var usertags = new Firebase("https://team-hack.firebaseio.com/tags-users/" + snapshot.key());
+			console.log("https://team-hack.firebaseio.com/tags-users/" + snapshot.key());
 			usertags.push(ref.getAuth.uid);
 		});
 	});
