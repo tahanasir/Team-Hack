@@ -156,6 +156,7 @@ $('#AuthModal').on('shown.bs.modal', function () {
   
     
 });
+var myFirebaseRef = new Firebase("https://team-hack.firebaseio.com/user/" + ref.getAuth().uid);
   // ------------------------- POPULATE DATA -------------------------
 myFirebaseRef.on("value", function(snapshot) {
   var json = snapshot.val();
