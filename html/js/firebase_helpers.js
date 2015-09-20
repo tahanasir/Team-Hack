@@ -1,5 +1,5 @@
 function updateTags(){
-	$("input[data-role='tagsinput']").tagsinput('items').each(function (item){
+	$("input[data-role='tagsinput']").tagsinput('items').forEach(function (item){
 		var ref = new Firebase("https://team-hack.firebaseio.com/tags");
 
 		ref.orderByValue().equalTo(item).once("value", function(snapshot) {
