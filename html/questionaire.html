@@ -5,6 +5,7 @@
   <title>Team Hack</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
+  <link href="css/bootstrap-tagsinput.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Lobster|Raleway' rel='stylesheet' type='text/css'>
 
   <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -12,6 +13,11 @@
   <!-- Firebase -->
   <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
   <script src="js/firebase_helpers.js"></script>
+
+  <script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+  <script src="js/bootstrap-tagsinput.min.js"></script>
+  <script src="js/tags.js"></script>
+
 </head>
 
 <body>
@@ -66,19 +72,13 @@
     </div>
   </div>
   <div class="form-group">
-    <label class="col-sm-2 control-label">Experience</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="experience" placeholder="eg. C++, Python">
-    </div>
-  </div>
-  <div class="form-group">
     <label class="col-sm-2 control-label">Interested</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="interested" placeholder="eg. c#">
     </div>
   </div>
   <div class="form-group">
-    <label class="col-sm-2 control-label">Resume Link</label>
+    <label class="col-sm-2 control-label">Resume</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="resume-link" placeholder="Dropbox?">
     </div>
@@ -89,6 +89,12 @@
       <input type="text" class="form-control" id="description" placeholder="Put something fun here!">
     </div>
   </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Tags</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" data-role="tagsinput">
+    </div>
+  </div>
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
@@ -97,9 +103,6 @@
   </div>
   </form>
   </div>
-
-
-
 
 </div>
 
@@ -116,7 +119,6 @@ myFirebaseRef.on("value", function(snapshot) {
   var json = snapshot.val();
   $("#description").val(json.description);
   $("#email").val(json.email);
-  $("#experience").val(json.experience);
   $("#interested").val(json.interested);
   $("#name").val(json.name);
   $("#resume-link").val(json["resume-link"]);
@@ -130,14 +132,15 @@ myFirebaseRef.on("value", function(snapshot) {
     {
       var name = document.getElementById("name").value;
       var email = document.getElementById("email").value;
-      var experience = document.getElementById("experience").value;
       var interested = document.getElementById("interested").value;
       var resumelink = document.getElementById("resume-link").value;
       var description = document.getElementById("description").value;
+
+      $("input[data-role='tagsinput']").tagsinput('items')
+
       var payload = {
             "description": description,
             "email": email,
-            "experience": experience,
             "interested": interested,
             "name": name,
             "resume-link": resumelink

@@ -48,6 +48,7 @@ function updateUserLogin(authData){
 	console.log("Authenticated successfully with payload:", authData);
 }
 
+
 $(document).ready(function() {
 	var ref = new Firebase("https://team-hack.firebaseio.com");
 	var authData = ref.getAuth();
