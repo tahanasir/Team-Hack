@@ -248,12 +248,12 @@
 </div>
 
 <script>
-  for (var i = 1; i <= 9; i++) {
-    $("#name"+ i).text("Loading...");
-    $("#tags"+ i).text("");
-  };
+for (var i = 1; i <= 9; i++) {
+  $("#name"+ i).text("Loading...");
+  $("#tags"+ i).text("");
+};
 
-  Populate("github");
+Populate("github");
 
   // ------------------------- Next DATA -------------------------
   $( "#next" ).click(function() {
@@ -268,34 +268,34 @@
 
   //  ------------------------- POPULATE DATA -------------------------
   function Populate(start) {
-  var users = new Firebase("https://team-hack.firebaseio.com/user/");
-  users.orderByKey().startAt(start).limitToFirst(9).once("value", function(snapshot){
-    var counter = 1;
-    snapshot.forEach(function(eachUser){
-      $("#name" + counter).text(eachUser.val().name);
-      $("#tags" + counter).text(eachUser.val().description);
-      $("#userthumb" + counter).attr("src",eachUser.val()["image-link"]);
-      $("#full"+counter).attr("uid",eachUser.key());
-      $("#full"+counter).css('visibility','visible');
-      $("#chat"+counter).css('visibility','visible');
-      $("#add"+counter).css('visibility','visible');
-      counter++;
-    });
-    if (counter <9)
-    {
-      for(counter;counter<=9;counter++)
+    var users = new Firebase("https://team-hack.firebaseio.com/user/");
+    users.orderByKey().startAt(start).limitToFirst(9).once("value", function(snapshot){
+      var counter = 1;
+      snapshot.forEach(function(eachUser){
+        $("#name" + counter).text(eachUser.val().name);
+        $("#tags" + counter).text(eachUser.val().description);
+        $("#userthumb" + counter).attr("src",eachUser.val()["image-link"]);
+        $("#full"+counter).attr("uid",eachUser.key());
+        $("#full"+counter).css('visibility','visible');
+        $("#chat"+counter).css('visibility','visible');
+        $("#add"+counter).css('visibility','visible');
+        counter++;
+      });
+      if (counter <9)
       {
-      $("#name" + counter).text("This could be you!");
-      $("#tags" + counter).text("");
-      $("#userthumb" + counter).attr("src","https://avatars.githubusercontent.com/u/0?v=3");
-      $("#full"+counter).attr("");
-      $("#full"+counter).css('visibility','hidden');
-      $("#chat"+counter).css('visibility','hidden');
-      $("#add"+counter).css('visibility','hidden');
+        for(counter;counter<=9;counter++)
+        {
+          $("#name" + counter).text("This could be you!");
+          $("#tags" + counter).text("");
+          $("#userthumb" + counter).attr("src","https://avatars.githubusercontent.com/u/0?v=3");
+          $("#full"+counter).attr("");
+          $("#full"+counter).css('visibility','hidden');
+          $("#chat"+counter).css('visibility','hidden');
+          $("#add"+counter).css('visibility','hidden');
+        }
       }
-    }
-  });
-  }
+    });
+}
 
   // ------------------------- POPULATE MODAL -------------------------
 
@@ -334,7 +334,7 @@
   })
 
 
-</script>
+  </script>
 
 </body>
 </html>

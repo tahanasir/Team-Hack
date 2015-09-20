@@ -34,6 +34,7 @@ function updateUserLogin(authData){
 		$('.loggedin').show();
 	});
 	console.log("Authenticated successfully with payload:", authData);
+	location.reload();
 }
 
 
@@ -70,5 +71,6 @@ $(document).ready(function() {
 		$('.logingithub').show();
 		$('.logout').hide();
 		$('.loggedin').hide();
+		location.reload();
 	});
 });

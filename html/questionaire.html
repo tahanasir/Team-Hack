@@ -53,146 +53,140 @@
 
 <div style="background-image:url(pictures/a.png);color:white;padding-top:10px;"class="questiontoprow">
 
-    <div style=""class="container">
-      <h1 style="padding-left:37%;color:#86B404;"><b>Account Settings</b></h1>
+  <div style=""class="container">
+    <h1 style="padding-left:37%;color:#86B404;"><b>Account Settings</b></h1>
   </div>
 </div>
 <div style=""class="row4">
 
-<div class=".col-md-2">
+  <div class=".col-md-2">
 
-  <div style="border-radius: 25px;"class="row">
-<h1 style="padding-left:17%;"> Profile Information</h1>
-  <form style="width:100%;" class="form-horizontal">
-  <div style="padding-left:0px;" class="form-group">
-    <label class="col-sm-2 control-label">Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="name" placeholder="John Smith">
+    <div style="border-radius: 25px;"class="row">
+      <h1 style="padding-left:17%;"> Profile Information</h1>
+      <form style="width:100%;" class="form-horizontal">
+        <div style="padding-left:0px;" class="form-group">
+          <label class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="name" placeholder="John Smith">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="email" placeholder="email@yourdomain.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Experience</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="experience" placeholder="Languages / Frameworks">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Interested</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="interested" placeholder="eg. c#">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Resume</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="resume-link" placeholder="Dropbox?">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Description</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="description" placeholder="Put something fun here!">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Tags</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" data-role="tagsinput">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button onclick="SetData()" class="btn btn-default">Submit</button>
+          </div>
+        </div>
+      </form>
     </div>
-  </div>
-  <div class="form-group">
-    <label class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="email" placeholder="email@yourdomain.com">
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="col-sm-2 control-label">Experience</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="experience" placeholder="Languages / Frameworks">
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="col-sm-2 control-label">Interested</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="interested" placeholder="eg. c#">
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="col-sm-2 control-label">Resume</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="resume-link" placeholder="Dropbox?">
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="col-sm-2 control-label">Description</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="description" placeholder="Put something fun here!">
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="col-sm-2 control-label">Tags</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" data-role="tagsinput">
-    </div>
+
   </div>
 
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button onclick="SetData()" class="btn btn-default">Submit</button>
-    </div>
-  </div>
-  </form>
-  </div>
 
 </div>
-
-
-</div>
-  <!-- Modal -->
-  <div class="blacktext">
-    <div class="modal fade" id="AuthModal" data-backdrop="static" data-keyboard="false">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 id="modalname">Hey, you're not logged in!</h4>
-          </div>
-          <div class="modal-body">
-            Please log in to see this page.
-          </div>
-          <div class="modal-footer">
-            <a type="button" class="btn btn-default bt-social" data-provider="github">Log In via GitHub</a>
-            <a type="button" class="btn btn-default" href="index.html">Go Back to Home</a>
-          </div>
+<!-- Modal -->
+<div class="blacktext">
+  <div class="modal fade" id="AuthModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="modalname">Hey, you're not logged in!</h4>
+        </div>
+        <div class="modal-body">
+          Please log in to see this page.
+        </div>
+        <div class="modal-footer">
+          <a type="button" class="btn btn-default bt-social" data-provider="github">Log In via GitHub</a>
+          <a type="button" class="btn btn-default" href="index.html">Go Back to Home</a>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 <script>
-  var ref =new Firebase("https://team-hack.firebaseio.com/");
-  var currentState = !ref.getAuth();
-  ref.onAuth(function(authData) {
-    if (authData && currentState) {
-      location.reload();
-    }
-  });
+var ref =new Firebase("https://team-hack.firebaseio.com/");
 
-  if (!ref.getAuth()){
-    $('#AuthModal').modal('show'); 
+if (!ref.getAuth()){
+  $('#AuthModal').modal('show'); 
   
-  }
+}
 $('#AuthModal').on('shown.bs.modal', function () {
   
-    
+  
 });
 var myFirebaseRef = new Firebase("https://team-hack.firebaseio.com/user/" + ref.getAuth().uid);
   // ------------------------- POPULATE DATA -------------------------
-myFirebaseRef.on("value", function(snapshot) {
-  var json = snapshot.val();
-  $("#description").val(json.description);
-  $("#email").val(json.email);
-  $("#experience").val(json.experience);
-  $("#interested").val(json.interested);
-  $("#name").val(json.name);
-  $("#resume-link").val(json["resume-link"]);
+  myFirebaseRef.on("value", function(snapshot) {
+    var json = snapshot.val();
+    $("#description").val(json.description);
+    $("#email").val(json.email);
+    $("#experience").val(json.experience);
+    $("#interested").val(json.interested);
+    $("#name").val(json.name);
+    $("#resume-link").val(json["resume-link"]);
 
-}, function (errorObject) {
-  console.log("The read failed: " + errorObject.code);
-});
+  }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
 
   // ------------------------- SEND DATA -------------------------
-    function SetData()
-    {
-      var name = document.getElementById("name").value;
-      var email = document.getElementById("email").value;
-      var experience = document.getElementById("experience").value;
-      var interested = document.getElementById("interested").value;
-      var resumelink = document.getElementById("resume-link").value;
-      var description = document.getElementById("description").value;
+  function SetData()
+  {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var experience = document.getElementById("experience").value;
+    var interested = document.getElementById("interested").value;
+    var resumelink = document.getElementById("resume-link").value;
+    var description = document.getElementById("description").value;
 
-      updateTags();
+    updateTags();
 
-      var payload = {
-            "description": description,
-            "email": email,
-            "experience": experience,
-            "interested": interested,
-            "name": name,
-            "resume-link": resumelink
-      };
-      myFirebaseRef.update(payload);
-    }
- </script>
+    var payload = {
+      "description": description,
+      "email": email,
+      "experience": experience,
+      "interested": interested,
+      "name": name,
+      "resume-link": resumelink
+    };
+    myFirebaseRef.update(payload);
+  }
+  </script>
 </body>
 </html>
