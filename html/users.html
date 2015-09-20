@@ -13,6 +13,19 @@
   <!-- Firebase -->
   <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
   <script src="js/firebase_helpers.js"></script>
+  <script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
+
+  <script>
+    function CreateSkypeButton(username) {
+      Skype.ui({
+        name: "call",
+        element: "SkypeButton",
+        participants: [username],
+        imageSize: 16
+      });
+    }
+  </script>
+
 </head>
 
 <body style="background-color:#1d3e53;">
@@ -42,131 +55,132 @@
 </nav>
 
 <div style="background-image:url(pictures/a.png);color:white;padding-top:10px;"class="questiontoprow">
-<div style=""class="container">
-  <h1 style="padding-left:37.5%;color:#86B404;"><b>Hackathon Users</b></h1>
-</div>
+  <div style=""class="container">
+    <h1 style="padding-left:37.5%;color:#86B404;"><b>Hackathon Users</b></h1>
+  </div>
 </div>
 
 <div style=""class="rownew">
 
 
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="thumbnail">
-            <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb1">
-            <div class="caption">
-              <h3 id="name1"></h3>
-              <div class="tagspace" id="tags1"></div>
-              <div class="text-right">
-                <a class="btn btn-default" id="full1">Full Profile</a>
-                <a class="btn btn-default" id="chat1">Chat</a>
-              </div>
-            </div>
-          </div>
+  <div class="col-lg-4 col-md-4 col-sm-6">
+    <div class="thumbnail">
+      <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb1">
+      <div class="caption">
+        <h3 id="name1"></h3>
+        <div class="tagspace" id="tags1"></div>
+        <div class="text-right">
+          <a class="btn btn-default" id="full1">Full Profile</a>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="thumbnail">
-            <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb2">
-            <div class="caption">
-              <h3 id="name2"></h3>
-              <div class="tagspace" id="tags2"></div>
-              <div class="text-right">
-                <a class="btn btn-default" id="full2">Full Profile</a>
-                <a class="btn btn-default" id="chat2">Chat</a>
-              </div>
-            </div>
-          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-6">
+    <div class="thumbnail">
+      <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb2">
+      <div class="caption">
+        <h3 id="name2"></h3>
+        <div class="tagspace" id="tags2"></div>
+        <div class="text-right">
+          <a class="btn btn-default" id="full2">Full Profile</a>
+          <a class="btn btn-default" id="chat2">Chat</a>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="thumbnail">
-            <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb3">
-            <div class="caption">
-              <h3 id="name3"></h3>
-              <div class="tagspace" id="tags3"></div>
-              <div class="text-right">
-                <a class="btn btn-default" id="full3">Full Profile</a>
-                <a class="btn btn-default" id="chat3">Chat</a>
-              </div>
-            </div>
-          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-6">
+    <div class="thumbnail">
+      <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb3">
+      <div class="caption">
+        <h3 id="name3"></h3>
+        <div class="tagspace" id="tags3"></div>
+        <div class="text-right">
+          <a class="btn btn-default" id="full3">Full Profile</a>
+          <a class="btn btn-default" id="chat3">Chat</a>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="thumbnail">
-            <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb4">
-            <div class="caption">
-              <h3 id="name4"></h3>
-              <div class="tagspace" id="tags4"></div>
-              <div class="text-right">
-                <a class="btn btn-default" id="full4">Full Profile</a>
-                <a class="btn btn-default" id="chat4">Chat</a>
-              </div>
-            </div>
-          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-6">
+    <div class="thumbnail">
+      <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb4">
+      <div class="caption">
+        <h3 id="name4"></h3>
+        <div class="tagspace" id="tags4"></div>
+        <div class="text-right">
+          <a class="btn btn-default" id="full4">Full Profile</a>
+          <a class="btn btn-default" id="chat4">Chat</a>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="thumbnail">
-            <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb5">
-            <div class="caption">
-              <h3 id="name5"></h3>
-              <div class="tagspace" id="tags5"></div>
-              <div class="text-right">
-                <a class="btn btn-default" id="full5">Full Profile</a>
-                <a class="btn btn-default" id="chat5">Chat</a>
-              </div>
-            </div>
-          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-6">
+    <div class="thumbnail">
+      <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb5">
+      <div class="caption">
+        <h3 id="name5"></h3>
+        <div class="tagspace" id="tags5"></div>
+        <div class="text-right">
+          <a class="btn btn-default" id="full5">Full Profile</a>
+
+          <div id="SkypeButton" class="btn btn-default"><script>CreateSkypeButton("william.yang97")</script></div>
+
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="thumbnail">
-            <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb6">
-            <div class="caption">
-              <h3 id="name6"></h3>
-              <div class="tagspace" id="tags6"></div>
-              <div class="text-right">
-                <a class="btn btn-default" id="full6">Full Profile</a>
-                <a class="btn btn-default" id="chat6">Chat</a>
-              </div>
-            </div>
-          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-6">
+    <div class="thumbnail">
+      <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb6">
+      <div class="caption">
+        <h3 id="name6"></h3>
+        <div class="tagspace" id="tags6"></div>
+        <div class="text-right">
+          <a class="btn btn-default" id="full6">Full Profile</a>
+          <a class="btn btn-default" id="chat6">Chat</a>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="thumbnail">
-            <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb7">
-            <div class="caption">
-              <h3 id="name7"></h3>
-              <div class="tagspace" id="tags7"></div>
-              <div class="text-right">
-                <a class="btn btn-default" id="full7">Full Profile</a>
-                <a class="btn btn-default" id="chat7">Chat</a>
-              </div>
-            </div>
-          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-6">
+    <div class="thumbnail">
+      <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb7">
+      <div class="caption">
+        <h3 id="name7"></h3>
+        <div class="tagspace" id="tags7"></div>
+        <div class="text-right">
+          <a class="btn btn-default" id="full7">Full Profile</a>
+          <a class="btn btn-default" id="chat7">Chat</a>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="thumbnail">
-            <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb8">
-            <div class="caption">
-              <h3 id="name8"></h3>
-              <div class="tagspace" id="tags8"></div>
-              <div class="text-right">
-                <a class="btn btn-default" id="full8">Full Profile</a>
-                <a class="btn btn-default" id="chat8">Chat</a>
-              </div>
-            </div>
-          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-6">
+    <div class="thumbnail">
+      <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb8">
+      <div class="caption">
+        <h3 id="name8"></h3>
+        <div class="tagspace" id="tags8"></div>
+        <div class="text-right">
+          <a class="btn btn-default" id="full8">Full Profile</a>
+          <a class="btn btn-default" id="chat8">Chat</a>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="thumbnail">
-            <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb9">
-            <div class="caption">
-              <h3 id="name9"></h3>
-              <div class="tagspace" id="tags9"></div>
-              <div class="text-right">
-                <a class="btn btn-default" id="full9">Full Profile</a>
-                <a class="btn btn-default" id="chat9">Chat</a>
-              </div>
-            </div>
-          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-6">
+    <div class="thumbnail">
+      <img style ="padding-top:3%;"src="pictures/circle.svg" height="140" width="140" id="userthumb9">
+      <div class="caption">
+        <h3 id="name9"></h3>
+        <div class="tagspace" id="tags9"></div>
+        <div class="text-right">
+          <a class="btn btn-default" id="full9">Full Profile</a>
+          <a class="btn btn-default" id="chat9">Chat</a>
         </div>
+      </div>
+    </div>
+  </div>
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
@@ -224,4 +238,7 @@
   });
  </script>
   </body>
+</script>
+
+</body>
 </html>
