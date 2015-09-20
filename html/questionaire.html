@@ -119,12 +119,36 @@
 
 
 </div>
-
+  <!-- Modal -->
+  <div class="blacktext">
+    <div class="modal fade" id="AuthModal" >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 id="modalname">Hey, you're not logged in!</h4>
+          </div>
+          <div class="modal-body">
+            Please log in to see this page.
+          </div>
+          <div class="modal-footer">
+            <a type="button" class="btn btn-default bt-social" data-provider="github">Log In via GitHub</a>
+            <a type="button" class="btn btn-default" href="index.html">Go Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <script>
   var ref =new Firebase("https://team-hack.firebaseio.com/");
-  var myFirebaseRef = new Firebase("https://team-hack.firebaseio.com/user/" + ref.getAuth().uid);
 
+  if (!ref.getAuth()){
+    $('#AuthModal').modal('show'); 
+  
+  }
+$('#AuthModal').on('shown.bs.modal', function () {
+    
+});
   // ------------------------- POPULATE DATA -------------------------
 myFirebaseRef.on("value", function(snapshot) {
   var json = snapshot.val();
