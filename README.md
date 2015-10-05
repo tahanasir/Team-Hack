@@ -2,7 +2,7 @@
 
 Hack The North 2015
 
-Web application to help hackers find teammates at hackathons
+Web application that helps hackers find teammates at hackathons
 
 Made with HTML/CSS, JavaScript, jQuery, Bootstrap and Firebase
 
