@@ -1,4 +1,4 @@
-# Team Hack
+# TeamHack
 
 Hack The North 2015
 
